@@ -9,14 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>springboot-csr-room-js</artifactId>
+	<artifactId>springboot-csr-room-react</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-csr-room-js</name>
-	<description>CSR Room JS project for Spring Boot</description>
-	
-	<packaging>war</packaging>
-	
-	
+	<name>springboot-csr-room-react</name>
+	<description>CSR Room React project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>

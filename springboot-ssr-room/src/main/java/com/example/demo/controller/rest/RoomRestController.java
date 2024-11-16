@@ -44,7 +44,7 @@ public class RoomRestController {
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<RoomDto>>> getRooms() {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
-		String message = roomDtos.isEmpty() ? "Room 查無資料" : "Room 查詢成功";
+		String message = roomDtos.isEmpty() ? "Room 查無資料" : "Room 查詢多筆成功";
 		return ResponseEntity.ok(ApiResponse.success(message, roomDtos));
 	}
 	
@@ -54,24 +54,27 @@ public class RoomRestController {
 		roomService.addRoom(roomDto);
 		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", roomDto));
 	}
+	
 	// 取得單筆
 	@GetMapping("/{roomId}")
 	public ResponseEntity<ApiResponse<RoomDto>> getRoom(@PathVariable Integer roomId) {
 		RoomDto roomDto = roomService.getRoomById(roomId);
 		return ResponseEntity.ok(ApiResponse.success("Room 查詢單筆成功", roomDto));
 	}
-	//修改房間
+	
+	// 修改房間
 	@PutMapping("/{roomId}")
-    public ResponseEntity<ApiResponse<RoomDto>> updateRoom(@PathVariable Integer roomId, @RequestBody RoomDto roomDto) {
-        roomService.updateRoom(roomId, roomDto);
-        return ResponseEntity.ok(ApiResponse.success("Room 修改成功", roomDto));
-    }
-	//刪除房間
+	public ResponseEntity<ApiResponse<RoomDto>> updateRoom(@PathVariable Integer roomId, @RequestBody RoomDto roomDto) {
+		roomService.updateRoom(roomId, roomDto);
+		return ResponseEntity.ok(ApiResponse.success("Room 修改成功", roomDto));
+	}
+	
+	// 刪除房間
 	@DeleteMapping("/{roomId}")
-    public ResponseEntity<ApiResponse<Integer>> deleteRoom(@PathVariable Integer roomId) {
-        roomService.deleteRoom(roomId);
-        return ResponseEntity.ok(ApiResponse.success("Room 刪除成功", roomId));
-    }
+	public ResponseEntity<ApiResponse<Integer>> deleteRoom(@PathVariable Integer roomId) {
+		roomService.deleteRoom(roomId);
+		return ResponseEntity.ok(ApiResponse.success("Room 刪除成功", roomId));
+	}
 	
 	@ExceptionHandler({RoomException.class})
 	public ResponseEntity<ApiResponse<Void>> handleRoomExceptions(RoomException e) {
