@@ -71,8 +71,8 @@
                                     <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/member">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">會員</a>
+                                    <a class="nav-link" id="nav-link" href="">
+                                    <img class="me-2" src="/img/coffee-print.png" alt="">訂餐紀錄</a>
                                 </li>
                             </ul>
 
@@ -163,7 +163,7 @@
 		                </table>
 		                <h2 id="total-amount">總金額：$0</h2>
 		                <div class="submitButton">
-		                	<button type="button" class="btn btn-outline-success" id="submit-order">送 出 訂 單</button>
+		                	<button type="button" class="btn btn-outline-success" id="submit-order" onclick="/order_backend">送 出 訂 單</button>
 		                </div>
 	                </fieldset>
                 </form>
@@ -192,7 +192,7 @@
                     <a href="/order" class="active">Order</a>
                 </div>
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">會員</h3>
+                    <h3 class="title">夥伴登入</h3>
                     <a href="/member">Member</a>
                 </div>
                 <div class="col-12 d-flex align-items-center">

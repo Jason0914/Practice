@@ -59,8 +59,8 @@
                                     <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="nav-link" href="/member">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">會員</a>
+                                    <a class="nav-link active" id="nav-link" href="/orderlist">
+                                    <img class="me-2" src="/img/coffee-print.png" alt="">訂餐紀錄</a>
                                 </li>
                             </ul>
 
@@ -115,7 +115,9 @@
 					            </div>
 					            <!-- 圖片驗證 -->
 					            <p><a href="#" id="toForget">忘記密碼</a></p>
-					            <button type="button" id="loginButton" class="btn btn-primary d-flex mx-auto">會員登入</button>
+					          
+					          <button type="button" id="loginButton" class="btn btn-primary d-flex mx-auto" onclick="/member_backend">會員登入</button>
+					        
 					        </fieldset>
 					    </form>
 					</div>
@@ -374,7 +376,7 @@
                     <a href="/order">Order</a>
                 </div>
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title active">會員</h3>
+                    <h3 class="title active">夥伴登入</h3>
                     <a href="/member" class="active">Member</a>
                 </div>
 

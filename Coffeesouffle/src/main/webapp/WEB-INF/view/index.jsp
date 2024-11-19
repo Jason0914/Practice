@@ -39,7 +39,7 @@
                             <img src="/img/Logo/coffee_souffle_slide.gif" class="Logo" height="90" alt="">
                             <h1 class="m-0 ms-3" id="h1">Coffee Soufflé</h1>
                         </a>
-                        <p class="hello">歡迎回來，${ member.name }</p>
+                        <p class="hello">歡迎回來</p> <!-- member.name -->
 
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false"
@@ -50,22 +50,22 @@
                         <nav class="collapse navbar-collapse" id="navbarMenu">
 
                             <ul class="navbar-nav ms-auto mb-2 mb-md-0 ps-2 ps-md-0">
-<!--                                 <li class="nav-item "> -->
-<!--                                     <a class="nav-link" id="nav-link" href="/menu"> -->
-<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">菜單</a> -->
-<!--                                 </li> -->
-                          <!--        <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/news">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">活動</a>
-                                </li> -->
+<!--                               <li class="nav-item ">  -->
+<!--                                     <a class="nav-link" id="nav-link" href="/menu">  -->
+<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">菜單</a>   -->
+<!--                                  </li>    -->
+<!--                                  <li class="nav-item"> -->
+<!--                                     <a class="nav-link" id="nav-link" href="/news"> -->
+<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">活動</a> -->
+<!--                                 </li>  -->
                                 <li class="nav-item">
                                     <a class="nav-link" id="nav-link" href="/order">
                                     <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
                                 </li>
                               
                                 <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/member">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">會員</a>
+                                    <a class="nav-link" id="nav-link" href="/order_backend">
+                                    <img class="me-2" src="/img/coffee-print.png" alt="">訂餐紀錄</a>
                                 </li>
                             </ul>
 
@@ -190,7 +190,7 @@
                 </div>
                
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">會員</h3>
+                    <h3 class="title">夥伴登入</h3>
                     <a href="/member">Member</a>
                 </div>
 

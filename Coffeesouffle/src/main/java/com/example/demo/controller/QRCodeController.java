@@ -16,7 +16,7 @@ public class QRCodeController {
 
     @GetMapping("/generateQRCode")
     public void generateQRCode(HttpServletResponse response) {
-        String url = "http://localhost:8080/index";  // 你要跳轉的網址
+        String url = "https://github.com/Jason0914/Practice.git";  // 你要跳轉的網址
         int width = 300;
         int height = 300;
 
