@@ -24,30 +24,29 @@ public class LoginController {
 	
     // 登入
     // @ResponseBody 和 @RequestBody 是用 Ajax 沒有刷新頁面時使用
-    @PostMapping("/login")
-    @ResponseBody
-    public ResponseEntity<?> login(@RequestBody Map<String, String> map, HttpSession session) throws Exception {
-    	Member member = new Member();
-    	try {
-    		member = memberService.login(map.get("account"), map.get("password"));
-    		
-    	} catch (Exception e) {
-    		
-    	}
-    	
-    	if (member != null) {
-			// member 是傳給前端的資料
-			Map<String, Object> result = new HashMap<>();
-			result.put("member", member);
-			result.put("isMember", member.getIsMember());
-			System.out.println("登入權限為：" + member.getIsMember());
-			
-			System.out.println("登入成功");
-			session.setAttribute("loginStatus", true);
-			return ResponseEntity.ok(result);
-    	}
-    	return null;
+	@PostMapping("/login")
+	@ResponseBody
+	public ResponseEntity<?> login(@RequestBody Map<String, String> map, HttpSession session) {
+	    Member member = null;
+	    try {
+	        member = memberService.login(map.get("account"), map.get("password"));
+	    } catch (Exception e) {
+	        return ResponseEntity.status(500).body("伺服器錯誤");
+	    }
+
+	    if (member != null) {
+	        // 設置登入狀態和會員資料到 session
+	        session.setAttribute("loginStatus", true);
+	        session.setAttribute("member", member);
+
+	        // 返回跳轉 URL
+	        Map<String, String> result = new HashMap<>();
+	        result.put("redirectUrl", "/member_backend"); // 固定跳轉到後台
+	        return ResponseEntity.ok(result);
+	    }
+	    return ResponseEntity.status(401).body("帳號或密碼錯誤");
 	}
+
 	
     
     // 登出

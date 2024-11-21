@@ -7,6 +7,14 @@
 <!-- Spring Form 表單標籤 -->
 <%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
 
+<%
+    // 檢查是否有登入
+    if (session.getAttribute("member") == null) {
+        response.sendRedirect("/index");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 

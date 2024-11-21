@@ -140,82 +140,39 @@ $(document).ready(function () {
 
 	// 登入會員按鈕
 	$('#loginButton').click(function () {
-		// 獲取帳號、密碼和驗證碼
-		var account = $('#loginAccount').val();
-		var password = $('#loginPassword').val();
-		var vad = $('#myvad').val();
+	    var account = $('#loginAccount').val();
+	    var password = $('#loginPassword').val();
 
-		// 構建請求數據
-		var requestData = {
-			account: account,
-			password: password
-		};
+	    var requestData = {
+	        account: account,
+	        password: password
+	    };
 
-		// 發送 AJAX 請求
-		$.ajax({
-			url: 'http://localhost:8080/login',  // 更換為您的後端 API 地址
-			type: 'POST',
-			contentType: 'application/json',
-			data: JSON.stringify(requestData),
-			success: function (response) {
-				console.log(response);
-				if (response.member) {
-					// 帳號密碼驗證成功，再進行驗證碼驗證
-					/* 如果忽略大小寫
-			  if (vad.toUpperCase() === validate.toUpperCase()) {
-			  */
-					if (vad === validate) {
-						// 登錄成功處理邏輯
-						Swal.fire({
-							position: "center",
-							icon: "success",
-							iconColor: '#4CAF50',
-							title: "登入成功",
-							showConfirmButton: false,
-							timer: 1000
-						});
-
-						// 將數據保存到 localStorage
-						localStorage.setItem('memberName', response.member.name);
-						localStorage.setItem('isMember', response.member.isMember);
-
-						// 判斷是否為管理者 (isMember == 1)
-						if (response.member.isMember == 1) {
-							// 重導到後台 member_backend 頁面
-							setTimeout(function () {
-								window.location.href = 'http://localhost:8080/menu_backend';
-							}, 1000); // 1000 毫秒 = 1 秒
-						} else {
-							// 非管理者重導到前端頁面
-							setTimeout(function () {
-								window.location.href = 'http://localhost:8080/index';
-							}, 1000); // 1000 毫秒 = 1 秒
-						}
-					} else {
-						// 驗證碼錯誤
-						Swal.fire({
-							icon: "error",
-							title: "驗證碼錯誤"
-						});
-					}
-				} else {
-					// 帳號或密碼錯誤
-					Swal.fire({
-						icon: "error",
-						title: "帳號或密碼錯誤"
-					});
-				}
-			},
-			error: function (xhr, status, error) {
-				// 登錄失敗處理邏輯
-				console.error('登入失敗:', error);
-				Swal.fire({
-					icon: "error",
-					title: "伺服器錯誤"
-				});
-			}
-		});
+	    $.ajax({
+	        url: 'http://localhost:8080/login',
+	        type: 'POST',
+	        contentType: 'application/json',
+	        data: JSON.stringify(requestData),
+	        success: function (response) {
+	            if (response.redirectUrl) {
+	                // 從後端獲取跳轉 URL 並執行跳轉
+	                window.location.href = response.redirectUrl;
+	            } else {
+	                Swal.fire({
+	                    icon: "error",
+	                    title: "登入成功，但無跳轉 URL"
+	                });
+	            }
+	        },
+	        error: function (xhr) {
+	            Swal.fire({
+	                icon: "error",
+	                title: xhr.responseText || "登入失敗"
+	            });
+	        }
+	    });
 	});
+
 
 
 

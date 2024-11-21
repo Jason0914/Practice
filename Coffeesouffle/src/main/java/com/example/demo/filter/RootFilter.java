@@ -28,9 +28,11 @@ public class RootFilter extends HttpFilter{
 		response.setContentType("text/html;charset=UTF-8");
 
 		HttpSession session = request.getSession();
-		if(session.getAttribute("loginStatus") == null) {
-			response.sendRedirect("/index");
+		if (session.getAttribute("loginStatus") == null) {
+		    response.sendRedirect("/index"); // 未登入的用戶跳轉到首頁
+		    return;
 		}
+
 		
 		//response.getWriter().print("UTF8Encode!");
 		chain.doFilter(request, response); // 往下繼續執行(放行)
