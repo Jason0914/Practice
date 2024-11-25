@@ -19,7 +19,6 @@
     	drawBottomFiveChart();
     	drawShiftSalesChart();
     }
-    
     // 畫出銷售最好前五名
     function drawTopFiveChart() {
     	
@@ -88,12 +87,12 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('bottom_five_chart'));
         chart.draw(data, options);
     }
-    
+  
     // 畫出早晚班圖
     function drawShiftSalesChart() {
-        從 JSP 頁面獲取數據並轉換為 JavaScript 數組
-       var orders = [
-           <c:forEach var="order" items="${orderList}">
+        // 從 JSP 頁面獲取數據並轉換為 JavaScript 數組
+        var order = [
+            <c:forEach var="order" items="${orderList}">
                 {
                     name: '${order.orderName}',
                     time: new Date('${order.orderTime}'),
@@ -102,25 +101,27 @@
             </c:forEach>
         ];
 
+        
+
         // 計算兩個時段的營業額加總
-       var shiftSales = calculateShiftSales(orders);
+//         var shiftSales = calculateShiftSales(order);
 
-        var data = google.visualization.arrayToDataTable([
-            ['時段', '總營業額', { role: 'style' }],
-            ['早班', shiftSales.morningShift, 'color: #34A853'],
-            ['晚班', shiftSales.eveningShift, 'color: #EA4335']
-        ]);
+//         var data = google.visualization.arrayToDataTable([
+//             ['時段', '總營業額', { role: 'style' }],
+//             ['早班', shiftSales.morningShift, 'color: #34A853'],
+//             ['晚班', shiftSales.eveningShift, 'color: #EA4335']
+//         ]);
 
-        var options = {
-            title: '各時段營業額',
-            is3D: true,
-            backgroundColor: '#FFFAE6',
-            fontSize: 28,
-            fontName: 'cat',
-            legend: { position: 'bottom' },
+//         var options = {
+//             title: '各時段營業額',
+//             is3D: true,
+//             backgroundColor: '#FFFAE6',
+//             fontSize: 28,
+//             fontName: 'cat',
+//             legend: { position: 'bottom' },
             
-        };
-     	//PieChart, BarChart, ColumnChart, LineChart
+//         };
+     	// PieChart, BarChart, ColumnChart, LineChart
         var chart = new google.visualization.PieChart(document.getElementById('shift_sales_chart'));
         chart.draw(data, options);
     }
@@ -148,14 +149,15 @@
 
 
 	<div class="col-12 col-md-6">
-	    <div id="top_five_chart" style="width: 700px; height: 500px;"></div>
+	    <div id="top_five_chart" style="width: 700px; height: 500px; "></div>
 	</div>
 	
 	<div class="col-12 col-md-6">
-	    <div id="bottom_five_chart" style="width: 700px; height: 500px;"></div>
+	    <div id="bottom_five_chart" style="width: 700px; height: 500px; "></div>
 	</div>
 	
 	<div class="col-12 col-md-6">
-	    <div id="shift_sales_chart" style="width: 700px; height: 500px;"></div>
+	    <div id="shift_sales_chart" style="width: 700px; height: 500px; "></div>
 	</div>
+	
 	

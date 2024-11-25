@@ -28,6 +28,9 @@
     <script src="/js/order_backend.js"></script>
     <!-- 設定網頁 icon -->
     <link rel="icon" href="/img/Logo/cooffee.ico" type="image/">
+   
+    
+    
 
     <title>Coffee Soufflé</title>
 </head>
@@ -58,21 +61,14 @@
                         <nav class="collapse navbar-collapse" id="navbarMenu">
 
                             <ul class="navbar-nav ms-auto mb-2 mb-md-0 ps-2 ps-md-0">
-<!--                                 <li class="nav-item"> -->
-<!--                                     <a class="nav-link" id="nav-link" href="/menu_backend"> -->
-<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">菜單</a> -->
-<!--                                 </li> -->
-<!--                                 <li class="nav-item"> -->
-<!--                                     <a class="nav-link" id="nav-link" href="/news_backend"> -->
-<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">活動</a> -->
-<!--                                 </li> -->
+
                                 <li class="nav-item">
                                     <a class="nav-link active" id="nav-link" href="/order_backend">
                                     <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="nav-link" href="/member_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">會員</a>
+                                    <img class="me-2" src="/img/coffee-print.png" alt="">成員</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link logout" id="nav-link" type="button">
@@ -200,21 +196,14 @@
                     <h3 class="title">首頁</h3>
                     <a href="/index">Home</a>
                 </div>
-<!--                 <div class="col-6 col-md-2 pt-1 d-flex flex-column"> -->
-<!--                     <h3 class="title">菜單</h3> -->
-<!--                     <a href="/menu">Menu</a> -->
-<!--                 </div> -->
-<!--                 <div class="col-6 col-md-2 pt-1 d-flex flex-column"> -->
-<!--                     <h3 class="title">活動</h3> -->
-<!--                     <a href="/news">News</a> -->
-<!--                 </div> -->
+
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
                     <h3 class="title">訂餐</h3>
                     <a href="/order">Order</a>
                 </div>
       
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">會員</h3>
+                    <h3 class="title">夥伴登入</h3>
                     <a href="/member">Member</a>
                 </div>
 
@@ -224,6 +213,15 @@
                 </div>
             </div>
         </div>
+        
+      
+		
+		
+		
+        
+        
+        
+        
 
     </footer>
 

@@ -61,7 +61,10 @@ $(document).ready(function () {
             }
         });
     });
-
+	
+	
+	
+	
 
     // 根據視窗寬度設置每頁顯示的項目數量
     function getPerPage() {
@@ -172,6 +175,7 @@ $(document).ready(function () {
             }
         });
     }
+	
 
 
 

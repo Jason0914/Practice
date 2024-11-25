@@ -82,7 +82,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" id="nav-link" href="/member_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">會員</a>
+                                    <img class="me-2" src="/img/coffee-print.png" alt="">成員</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link logout" href="javascript:void(0);" id="nav-link" type="button">
@@ -288,7 +288,7 @@
                     <a href="/order">Order</a>
                 </div>
                 <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">會員</h3>
+                    <h3 class="title">夥伴登入</h3>
                     <a href="/member">Member</a>
                 </div>
 
