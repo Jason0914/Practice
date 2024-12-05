@@ -1,3 +1,41 @@
+.header-buttons {
+    display: flex;
+    gap: 20px; /* 按鈕之間的間距 */
+    margin-left: auto; /* 按鈕向右對齊 */
+}
+
+.header-btn {
+    text-decoration: none; /* 去除下劃線 */
+    font-size: 1.25rem; /* 按鈕文字大小 */
+    font-weight: bold; /* 按鈕文字加粗 */
+    padding: 10px 20px; /* 按鈕內邊距 */
+    background-color: #ffffff; /* 白色背景 */
+    color: #000000; /* 黑色文字 */
+    border-radius: 25px; /* 圓角 */
+    transition: all 0.3s ease-in-out; /* 動態效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+}
+
+.header-btn:hover {
+    background-color: #00d1ff; /* 懸停時背景色變為天藍色 */
+    color: #ffffff; /* 懸停時文字顏色變為白色 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 懸停時陰影加深 */
+}
+/* 確保內容不被 header 覆蓋 */
+body {
+    padding-top: 100px; /* 確保 header 的高度 */
+}
+
+/* 針對表格外層容器添加 margin-top */
+.table-responsive {
+    margin-top: 100px; /* 與 header 保持距離 */
+}
+
+
+
+
+
+
 #sec1 {
     min-height: 800px;
 }
@@ -31,11 +69,42 @@ th img {
 /* 表格 */
 table {
     width: 100%;
-    /* display: block; */
-    overflow-x: auto;
-    white-space: nowrap;
-    font-size: 1.4rem;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+table th {
+    background-color: #6b675d; /* 表頭背景色 */
+    color: #000000; /* 表頭文字顏色 */
+    padding: 15px; /* 表頭內邊距 */
+    text-align: center; /* 表頭文字置中 */
+    border-right: 1px solid white; /* 表頭分隔線 */
+    font-size: 1.2rem; /* 增大表頭字體大小 */
+    word-break: break-word; /* 允許單詞換行 */
+}
+
+table td {
+    text-align: center; /* 文字置中 */
+    padding: 12px; /* 單元格內邊距 */
+    border-top: 1px dotted #ccc; /* 上方虛線 */
+    border-left: 1px dotted #ccc; /* 左側虛線 */
+    font-size: 1.1rem; /* 增大單元格字體大小 */
+    background-color: #f9f9f9; /* 單元格背景色 */
+    white-space: normal; /* 允許正常換行 */
+    word-break: break-word; /* 單詞過長時換行 */
+}
+
+table tr:nth-child(even) td {
+    background-color: #ffffff;
+}
+
+table tr:hover td {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
 
 table .btn {
     border-radius: 10px;
@@ -61,13 +130,40 @@ table .btn {
 }
 
 .modal-header {
-	background-color: var(--c-sub2-10);
+	background-color: #6b675d;
 }
 
 .modal-body {
 	background-color: var(--c-sub1-10);
 }
 
+@media (max-width: 768px) {
+    table {
+        display: block; /* 塊級顯示 */
+        overflow-x: auto; /* 滾動適配 */
+        white-space: nowrap;
+    }
+
+    table th, table td {
+        font-size: 1rem; /* 響應式調整字體大小 */
+        padding: 10px; /* 縮小內邊距 */
+    }
+
+    table td {
+        white-space: normal; /* 小屏幕允許換行 */
+        word-break: break-word;
+    }
+}
+/* 偶數行背景色 */
+table tr:nth-child(even) td {
+    background-color: #ffffff;
+}
+
+/* 懸停效果 */
+table tr:hover td {
+    background-color: #f1f1f1; /* 懸停時背景色 */
+    cursor: pointer;
+}
 
 
 
@@ -142,47 +238,47 @@ table .btn {
 
     td:nth-of-type(1):before {
         content: "會員ID";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(2):before {
         content: "帳號";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(3):before {
         content: "密碼";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(4):before {
         content: "姓名";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(5):before {
         content: "性別";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(6):before {
         content: "生日";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(7):before {
         content: "信箱";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(8):before {
         content: "手機號碼";
-        color: #0e9893;
+        color: rgb(0, 0, 0);
     }
 
     td:nth-of-type(9):before {
-        content: "操作";
-        color: #0e9893;
+        content: "";
+        color: rgb(0, 0, 0);
     }
 }
 
@@ -201,7 +297,7 @@ table .btn {
 }
 
 .simple-pagination .current {
-    color: #fff;
+    color: rgb(0, 0, 0);
     background-color: var(--c-base-10);
     border: 1px solid #dee2e6;
     text-align: center;
@@ -248,3 +344,4 @@ table .btn {
 #pagination-container ul {
     padding: 0px;
 }
+

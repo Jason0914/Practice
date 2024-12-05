@@ -1,32 +1,35 @@
 package com.example.demo.controller;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import com.example.demo.service.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class QRCodeController {
 
-    @GetMapping("/generateQRCode")
-    public void generateQRCode(HttpServletResponse response) {
-        String url = "https://github.com/Jason0914/Practice.git";  // 你要跳轉的網址
-        int width = 300;
-        int height = 300;
+    @Autowired
+    private QRCodeGenerator qrCodeGenerator;
 
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    @GetMapping("/generate-qr")
+    public ResponseEntity<byte[]> generateQRCode(@RequestParam String text,
+                                                 @RequestParam(defaultValue = "200") int width,
+                                                 @RequestParam(defaultValue = "200") int height) {
         try {
-            BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, width, height);
-            response.setContentType("image/png");
-            MatrixToImageWriter.writeToStream(bitMatrix, "PNG", response.getOutputStream());
-        } catch (WriterException | IOException e) {
-            e.printStackTrace();
+            byte[] qrCodeImage = qrCodeGenerator.generateQRCode(text, width, height);
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=qr_code.png")
+                    .contentType(MediaType.IMAGE_PNG)
+                    .body(qrCodeImage);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
         }
     }
-}
+}//QRcode網址:http://localhost:8080/generate-qr?text=HelloWorld&width=300&height=300
+ //QRcode:http://localhost:8080/generate-qr?text=Hello%20World

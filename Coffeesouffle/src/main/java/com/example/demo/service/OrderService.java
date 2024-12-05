@@ -13,6 +13,7 @@ import com.example.demo.model.dto.OrderItemDto;
 import com.example.demo.model.po.Order;
 import com.example.demo.model.po.OrderItem;
 
+
 @Service
 public class OrderService {
 	
@@ -69,10 +70,27 @@ public class OrderService {
     public void deleteOrder(Integer orderId) {
         orderDao.deleteOrder(orderId);
     }
-	
+	// OrderService.java
+	public List<Order> getOrdersByTableNumber(Integer tableNumber) {
+	    return orderDao.findOrdersByTableNumber(tableNumber);
+	}
+
 	
 	// 判斷要呼叫DAO語法幾次
-	
-	
+	//返回桌面
+//	 @Autowired
+//	    private OrderRepository orderRepository;
+//
+//	    @Autowired
+//	    private OrderItemRepository orderItemRepository;
+//
+//	    public List<Order> getOrdersByTableNumber(Integer tableNumber) {
+//	        return orderRepository.findByTableNumber(tableNumber);
+//	    }
+//
+//	    public List<OrderItem> getOrderItemsByTableNumber(Integer tableNumber) {
+//	        return orderItemRepository.findByTableNumber(tableNumber);
+//	    }
+//	
 
 }

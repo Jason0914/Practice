@@ -12,4 +12,9 @@ public interface OrderDao {
 	int createOrder(OrderDto orderDto); // 新增 Order
     void createOrderItem(Integer orderId, OrderItemDto orderItemDto); // 新增 Order 明細
     int deleteOrder(Integer orderId); // 刪除
+ // OrderDao.java
+    List<Order> findOrdersByTableNumber(Integer tableNumber);
+
+    
+    
 }

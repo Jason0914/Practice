@@ -35,11 +35,11 @@ public class PathController {
 		return "index";
 	}
 	
-	// 跳轉 /location 頁面
-	@GetMapping("/location")
-	public String locationPage() {
+	// 跳轉 /table 頁面
+	@GetMapping("/table")
+	public String tablePage() {
 		
-		return "location";
+		return "table";
 	}
 		
 	// 跳轉 /member 頁面
@@ -48,6 +48,14 @@ public class PathController {
 		
 		return "member";
 	}
+	// 跳轉 /cart 頁面
+		@GetMapping("/cart")
+		public String cartPage() {
+			
+			return "cart";
+		}
+		
+
 	
 	
 }

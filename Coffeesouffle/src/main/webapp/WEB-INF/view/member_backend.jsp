@@ -49,51 +49,28 @@
             <div class="row">
 
                 <nav class="navbar navbar-expand-md navbar-light fixed-top">
-                    <div class="container-xxl p-0">
+    <div class="container-xxl p-0">
+        <a class="navbar-brand d-flex align-items-center" href="./index">
+            <img src="/img/Logo/coffee2.png" class="Logo" height="90" alt="">
+            <h1 class="m-0 ms-3" id="h1">後臺</h1>
+        </a>
 
-                        <a class="navbar-brand d-flex align-items-center" href="./index">
-                            <img src="/img/Logo/coffee_souffle_slide.gif" class="Logo" height="90" alt="">
-                            <h1 class="m-0 ms-3" id="h1">後臺</h1>
-                        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                        <p class="hello"></p>
+        <nav class="collapse navbar-collapse" id="navbarMenu">
+            <div class="header-buttons">
+               	<a class="header-btn" href="/index">首頁</a>
+                <a class="header-btn" href="/order_backend">訂餐</a>
+                <a class="header-btn" href="/member_backend">成員</a>
+                <a class="header-btn" href="/logout">登出</a>
+            </div>
+        </nav>
+    </div>
+</nav>
 
-
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarMenu" aria-controls="navbarMenu"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <nav class="collapse navbar-collapse" id="navbarMenu">
-
-                            <ul class="navbar-nav ms-auto mb-2 mb-md-0 ps-2 ps-md-0">
-<!--                                 <li class="nav-item"> -->
-<!--                                     <a class="nav-link" id="nav-link" href="/menu_backend"> -->
-<!--                                     <img class="me-2" src="/img/coffee-print.png" alt="">菜單</a> -->
-<!--                                 </li> -->
-                           <!--       <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/news_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">活動</a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/order_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="nav-link" href="/member_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">成員</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link logout" href="javascript:void(0);" id="nav-link" type="button">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">登出</a>
-                                </li>
-                            </ul>
-
-                        </nav>
-
-                    </div>
-                </nav>
 
             </div>
         </div>
@@ -120,7 +97,7 @@
                                 <th>生日 <img src="/img/icons/down.svg" alt=""></th>
                                 <th class="email-cell">信箱 <img src="/img/icons/down.svg" alt=""></th>
                                 <th class="phone-cell">手機號碼 <img src="/img/icons/down.svg" alt=""></th>
-                                <th>操作</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -168,13 +145,13 @@
 
 
 	<!-- 圖表區 -->
-	<section id="sec2">
-        <div class="container-xl">
-            <div class="row">
-				<%@ include file="member_charts.jspf" %>
-            </div>
-        </div>
-    </section>
+<!-- 	<section id="sec2"> -->
+<!--         <div class="container-xl"> -->
+<!--             <div class="row"> -->
+<%-- 				<%@ include file="member_charts.jspf" %> --%>
+<!--             </div> -->
+<!--         </div> -->
+<!--     </section> -->
 	
 
     <!-- 修改表單 -->
@@ -182,7 +159,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-paw"></i> 修改會員資料</h3>
+                    <h3 class="modal-title" id="exampleModalLabel"><i class=""></i> 修改夥伴資料</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -193,12 +170,12 @@
                         <fieldset>
                             <!-- 帳號 -->
                             <div class="form-group mb-2">
-                                <label for="updateAccount" class="col-form-label"><i class="fa fa-user"></i> 帳&#12288;&#12288;號：</label>
+                                <label for="updateAccount" class="col-form-label"><i class=""></i> 帳&#12288;&#12288;號：</label>
                                 <input type="text" class="form-control" id="updateAccount" name="account" readonly>
                             </div>
 							<!-- 密碼 -->
 							<div class="form-group mb-2">
-							    <label for="updatePassword" class="col-form-label"><i class="fa fa-lock"></i> 密&#12288;&#12288;碼：</label>
+							    <label for="updatePassword" class="col-form-label"><i class=""></i> 密&#12288;&#12288;碼：</label>
 							    <div class="password-eye">
 							        <input type="password" class="form-control" id="updatePassword" name="password"
 							        pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$" required />
@@ -212,7 +189,7 @@
 							</div>
 							<!-- 密碼確認 -->
 							<div class="form-group mb-2">
-							    <label for="updatePassword2" class="col-form-label"><i class="fa fa-lock"></i> 密碼確認：</label>
+							    <label for="updatePassword2" class="col-form-label"><i class=""></i> 密碼確認：</label>
 							    <div class="password-eye">
 							        <input type="password" class="form-control" id="updatePassword2" name="password2"
 							        pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$" required />
@@ -226,30 +203,30 @@
 							</div>
                             <!-- 姓名 -->
                             <div class="form-group mb-2">
-                                <label for="updateName" class="col-form-label"><i class="fa fa-user-plus"></i> 姓&#12288;&nbsp; 名：</label>
+                                <label for="updateName" class="col-form-label"><i class=""></i> 姓&#12288;&nbsp; 名：</label>
                                 <input type="text" class="form-control" id="updateName" name="name" required>
                             </div>
                             <!-- 性別 -->
                             <div class="mb-0">
-                                <label for="updateGender" class="col-form-label"><i class="fa fa-venus-mars"></i> 性&#12288;&nbsp; 別：</label>
+                                <label for="updateGender" class="col-form-label"><i class=""></i> 性&#12288;&nbsp; 別：</label>
                                 <input class="form-check-input mt-3" type="radio" id="genderMale" name="gender" value="男生" checked>
-                                <label class="form-check-label" for="genderMale"><i class="fa fa-mars"></i>男生</label>
+                                <label class="form-check-label" for="genderMale"><i class=""></i>男生</label>
                                 <input class="form-check-input mt-3" type="radio" id="genderFemale" name="gender" value="女生">
-                                <label class="form-check-label" for="genderFemale"><i class="fa fa-venus"></i>女生</label>
+                                <label class="form-check-label" for="genderFemale"><i class=""></i>女生</label>
                             </div>
                             <!-- 生日 -->
                             <div class="form-group mb-2">
-                                <label for="updateBrithday" class="col-form-label"><i class="fa fa-calendar"></i> 生&#12288;&#12288;日：</label>
+                                <label for="updateBrithday" class="col-form-label"><i class=""></i> 生&#12288;&#12288;日：</label>
                                 <input type="date" class="form-control" id="updateBirthday" name="birthday" required>
                             </div>
                             <!-- 電子郵件 -->
                             <div class="form-group mb-2">
-                                <label for="updateEmail" class="col-form-label"><i class="fa fa-envelope"></i> 電子郵件：</label>
+                                <label for="updateEmail" class="col-form-label"><i class=""></i> 電子郵件：</label>
                                 <input type="email" class="form-control" id="updateEmail" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"/>
                             </div>
                             <!-- 手機號碼 -->
                             <div class="form-group mb-3">
-                                <label for="updatePhone" class="col-form-label"><i class="fa fa-phone"></i> 手機號碼：</label>
+                                <label for="updatePhone" class="col-form-label"><i class=""></i> 手機號碼：</label>
                                 <input type="tel" class="form-control" id="updatePhone" name="phone" required maxlength="10" pattern="09\d{2}\d{6}" oninput="setCustomValidity('');" oninvalid="setCustomValidity('請輸入正確的手機號瑪格式:09xxxxxxxx');"/>
                             </div>
 
@@ -265,41 +242,31 @@
     </div>
 
 
-    <!-- footer 區域 頁尾 -->
-    <footer>
-
-        <div class="container-xl text-center">
-            <div class="row">
-
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">首頁</h3>
-                    <a href="/index">Home</a>
-                </div>
-<!--                 <div class="col-6 col-md-2 pt-1 d-flex flex-column"> -->
-<!--                     <h3 class="title">菜單</h3> -->
-<!--                     <a href="/menu">Menu</a> -->
-<!--                 </div> -->
-        <!--          <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">活動</h3>
-                    <a href="/news">News</a>
-                </div>  -->
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">訂餐</h3>
-                    <a href="/order">Order</a>
-                </div>
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">夥伴登入</h3>
-                    <a href="/member">Member</a>
-                </div>
-
-                <div class="col-12 d-flex align-items-center">
-                    <img src="/img/Logo/coffee_souffle_slide.gif" class="img-fluid me-3" alt="...">
-                    <p class="mb-0">Coffee Soufflé</p>
-                </div>
-            </div>
+   <!-- footer 區域 頁尾 -->
+   <footer>
+    <div class="container-xl d-flex justify-content-between align-items-center">
+        <!-- Logo 和版權文字 -->
+        <div class="footer-logo-text d-flex align-items-center">
+            <img src="/img/Logo/coffee2.png" class="footer-logo-img" alt="Coffee Soufflé Logo">
+            <p class="mb-0 ms-2">© 2024 Coffee Soufflé. All rights reserved.</p>
         </div>
+        
+       	<div>
+			
+			<img class="footer-logo-img-Line" alt="Line" src="img/Logo/LINElogo .png">
+			<img class="footer-logo-img-FB" alt="FB" src="img/Logo/FBlogo.png">
+			<img class="footer-logo-img-IG" alt="IG" src="img/Logo/IGlogo.png">
+			
+			</div>
+        
 
-    </footer>
+        <!-- 夥伴登入按鈕 -->
+        <a href="/member" class="footer-btn">
+            <div>夥伴登入</div>
+            <span>Employee</span>
+        </a>
+    </div>
+</footer>
 
 	<!-- bootstrap5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>

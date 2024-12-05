@@ -205,20 +205,22 @@ $(document).ready(function () {
 			position: "center",
 			icon: "success",
 			iconColor: '#4CAF50',
-			title: `${memberId}號會員修改成功`,
+					background: 'rgb(0,0,0)', // 背景顏色
+					color: '#4CAF50', // 文字顏色
+			title: `${memberId}號夥伴修改成功`,
 			showConfirmButton: false,
 			timer: 1300
 		});
 
 		// 使用 fetch 提交表單
 
-		fetch('http://localhost:8080/member_backend/' + memberId, {
+		fetch('http://localhost:8082/member_backend/' + memberId, {
 			method: 'PUT',
 			body: new FormData(form[0])
 		})
 			.then(response => {
 				if (response.ok) {
-					window.location.href = 'http://localhost:8080/member_backend';
+					window.location.href = 'http://localhost:8082/member_backend';
 				} else {
 					return response.text().then(text => { throw new Error(text) });
 				}
@@ -227,6 +229,9 @@ $(document).ready(function () {
 				console.error('發生錯誤', error);
 				Swal.fire({
 					icon: 'error',
+					iconColor: '#4CAF50',
+							background: 'rgb(0,0,0)', // 背景顏色
+							color: '#4CAF50', // 文字顏色
 					title: '伺服器錯誤'
 				});
 			});
@@ -247,6 +252,9 @@ $(document).ready(function () {
 			text: "此操作無法恢復！",
 			icon: 'warning',
 			showCancelButton: true,
+			iconColor: '#4CAF50',
+					background: 'rgb(0,0,0)', // 背景顏色
+					color: '#4CAF50', // 文字顏色
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
 			confirmButtonText: '確定',
@@ -255,9 +263,11 @@ $(document).ready(function () {
 			if (result.isConfirmed) {
 				// 確認刪除，提交表單
 				Swal.fire({
-					title: `${memberId}號會員刪除成功!`,
+					title: `${memberId}號夥伴刪除成功!`,
 					icon: "success",
 					iconColor: '#4CAF50',
+							background: 'rgb(0,0,0)', // 背景顏色
+							color: '#4CAF50', // 文字顏色
 					showConfirmButton: false
 				});
 				form.submit();

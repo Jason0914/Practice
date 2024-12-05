@@ -41,45 +41,29 @@
         <div class="container-xl">
             <div class="row">
 
-                <nav class="navbar navbar-expand-md navbar-light fixed-top">
-                    <div class="container-xxl p-0">
+               <nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <div class="container-xxl p-0">
+        <a class="navbar-brand d-flex align-items-center" href="./index">
+            <img src="/img/Logo/coffee2.png" class="Logo" height="90" alt="">
+            <h1 class="m-0 ms-3" id="h1">後臺</h1>
+        </a>
 
-                        <a class="navbar-brand d-flex align-items-center" href="./index">
-                            <img src="/img/Logo/coffee_souffle_slide.gif" class="Logo" height="90" alt="">
-                            <h1 class="m-0 ms-3" id="h1">後臺</h1>
-                        </a>
-                        
-                         <p class="hello"></p>
-                        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarMenu" aria-controls="navbarMenu"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+        <nav class="collapse navbar-collapse" id="navbarMenu">
+            <div class="header-buttons">
+               	<a class="header-btn" href="/index">首頁</a>
+                <a class="header-btn" href="/order_backend">訂餐</a>
+                <a class="header-btn" href="/member_backend">成員</a>
+                <a class="header-btn" href="/logout">登出</a>
+            </div>
+        </nav>
+    </div>
+</nav>
 
-                        <nav class="collapse navbar-collapse" id="navbarMenu">
-
-                            <ul class="navbar-nav ms-auto mb-2 mb-md-0 ps-2 ps-md-0">
-
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="nav-link" href="/order_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">訂餐</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="nav-link" href="/member_backend">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">成員</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link logout" id="nav-link" type="button">
-                                    <img class="me-2" src="/img/coffee-print.png" alt="">登出</a>
-                                </li>
-                            </ul>
-
-                        </nav>
-
-                    </div>
-                </nav>
 
             </div>
         </div>
@@ -106,7 +90,7 @@
                                 -->
                                 <th>訂餐時間 <img src="/img/icons/down.svg" alt=""></th>
                                 <th>總金額 <img src="/img/icons/down.svg" alt=""></th>
-                                <th>操作</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -177,53 +161,48 @@
         </div>
     </div>
 
-   <!-- 圖表區 -->
-	<section id="sec2" class="mb-5">
-        <div class="container-xl">
-            <div class="row justify-content-center">
-				<%@ include file="order_charts.jspf" %>
+   
+<!-- 圖表區域 -->
+<section id="sec2" class="mb-5">
+    <div class="container-xl">
+        <div class="row justify-content-center">
+        <%@ include file="order_charts.jspf" %>
+            <div class="col-12 col-md-6">
+                <div id="top_five_chart" style="width: 700px; height: 500px;"></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="bottom_five_chart" style="width: 700px; height: 500px;"></div>
             </div>
         </div>
-    </section>
-
-    <!-- footer 區域 頁尾 -->
-    <footer>
-
-        <div class="container-xl text-center">
-            <div class="row">
-
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">首頁</h3>
-                    <a href="/index">Home</a>
-                </div>
-
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">訂餐</h3>
-                    <a href="/order">Order</a>
-                </div>
-      
-                <div class="col-6 col-md-2 pt-1 d-flex flex-column">
-                    <h3 class="title">夥伴登入</h3>
-                    <a href="/member">Member</a>
-                </div>
-
-                <div class="col-12 d-flex align-items-center">
-                    <img src="/img/Logo/coffee_souffle_slide.gif" class="img-fluid me-3" alt="...">
-                    <p class="mb-0">Coffee Soufflé</p>
-                </div>
-            </div>
+    </div>
+</section>
+   <!-- footer 區域 頁尾 -->
+   <footer>
+    <div class="container-xl d-flex justify-content-between align-items-center">
+        <!-- Logo 和版權文字 -->
+        <div class="footer-logo-text d-flex align-items-center">
+            <img src="/img/Logo/coffee2.png" class="footer-logo-img" alt="Coffee Soufflé Logo">
+            <p class="mb-0 ms-2">© 2024 Coffee Soufflé. All rights reserved.</p>
         </div>
         
-      
-		
-		
-		
         
-        
+     	<div>
+			
+			<img class="footer-logo-img-Line" alt="Line" src="img/Logo/LINElogo .png">
+			<img class="footer-logo-img-FB" alt="FB" src="img/Logo/FBlogo.png">
+			<img class="footer-logo-img-IG" alt="IG" src="img/Logo/IGlogo.png">
+			
+			</div>
         
         
 
-    </footer>
+        <!-- 夥伴登入按鈕 -->
+        <a href="/member" class="footer-btn">
+            <div>夥伴登入</div>
+            <span>Employee</span>
+        </a>
+    </div>
+</footer>
 
 	<!-- bootstrap5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>

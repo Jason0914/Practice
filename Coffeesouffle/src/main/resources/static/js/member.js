@@ -149,7 +149,7 @@ $(document).ready(function () {
 	    };
 
 	    $.ajax({
-	        url: 'http://localhost:8080/login',
+	        url: 'http://localhost:8082/login',
 	        type: 'POST',
 	        contentType: 'application/json',
 	        data: JSON.stringify(requestData),
@@ -160,6 +160,9 @@ $(document).ready(function () {
 	            } else {
 	                Swal.fire({
 	                    icon: "error",
+						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 	                    title: "登入成功，但無跳轉 URL"
 	                });
 	            }
@@ -167,6 +170,9 @@ $(document).ready(function () {
 	        error: function (xhr) {
 	            Swal.fire({
 	                icon: "error",
+					iconColor: '#4CAF50',
+							background: 'rgb(0,0,0)', // 背景顏色
+							color: '#4CAF50', // 文字顏色
 	                title: xhr.responseText || "登入失敗"
 	            });
 	        }
@@ -212,12 +218,14 @@ $(document).ready(function () {
 				position: "center",
 				icon: "success",
 				iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 				title: "會員加入成功",
 				showConfirmButton: false,
 				timer: 1000
 			});
 			// 重導到後台 member 頁面
-			window.location.href = 'http://localhost:8080/member';
+			window.location.href = 'http://localhost:8082/member';
 		} else {
 			// 如果表單無效，觸發預設的提示（例如 required 屬性的提示）
 			$('#createMember')[0].reportValidity();
@@ -231,7 +239,7 @@ $(document).ready(function () {
 		// 使用 AJAX 發送請求檢查帳號是否存在
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8080/member_backend/checkAccount',
+			url: 'http://localhost:8082/member_backend/checkAccount',
 			data: { account: account },
 			success: function (response) {
 				if (response.exists) {
@@ -257,7 +265,7 @@ $(document).ready(function () {
 		// 使用 AJAX 發送請求檢查 Email 是否存在
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8080/member_backend/checkEmail',
+			url: 'http://localhost:8082/member_backend/checkEmail',
 			data: { email: email },
 			success: function (response) {
 				if (response.exists) {
@@ -284,7 +292,7 @@ $(document).ready(function () {
 		// 使用 AJAX 發送請求檢查手機號碼是否存在
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8080/member_backend/checkPhone',
+			url: 'http://localhost:8082/member_backend/checkPhone',
 			data: { phone: phone },
 			success: function (response) {
 				if (response.exists) {
@@ -346,6 +354,9 @@ $(document).ready(function () {
 			// 使用 SweetAlert 彈出提示
 			Swal.fire({
 				icon: 'warning',
+				iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 				title: '請先輸入Email'
 			});
 			return; // 終止函數的執行
@@ -363,6 +374,9 @@ $(document).ready(function () {
 				beforeSend: function () {
 					Swal.fire({
 						title: '正在發送驗證碼...',
+						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						allowOutsideClick: false,
 						timer: 3000, // 設定發送驗證碼的超時時間，這裡設定為3秒
 						timerProgressBar: true,
@@ -390,6 +404,8 @@ $(document).ready(function () {
 					Swal.fire({
 						icon: 'success',
 						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						title: '驗證碼已發送到您的信箱 ' + maskedEmail
 
 					});
@@ -397,6 +413,9 @@ $(document).ready(function () {
 				error: function (error) {
 					Swal.fire({
 						icon: 'error',
+						iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 						title: '傳送驗證碼失敗',
 						timer: 3000,
 						timerProgressBar: true
@@ -406,6 +425,9 @@ $(document).ready(function () {
 		} else {
 			Swal.fire({
 				icon: 'error',
+				iconColor: '#4CAF50',
+				background: 'rgb(0,0,0)', // 背景顏色
+				color: '#4CAF50', // 文字顏色
 				title: '請輸入有效的電子郵件地址',
 				timer: 3000,
 				timerProgressBar: true
@@ -420,7 +442,7 @@ $(document).ready(function () {
 		// 使用 AJAX 發送請求檢查 Email 是否存在
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8080/member_backend/checkEmail',
+			url: 'http://localhost:8082/member_backend/checkEmail',
 			data: { email: email },
 			success: function (response) {
 				if (response.exists || email === '') {
@@ -469,6 +491,8 @@ $(document).ready(function () {
 					Swal.fire({
 						icon: 'success',
 						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						title: '驗證碼輸入正確',
 						showConfirmButton: false,
 						timer: 1500
@@ -477,6 +501,9 @@ $(document).ready(function () {
 					// 驗證碼錯誤，彈出 SweetAlert 提示訊息
 					Swal.fire({
 						icon: 'error',
+						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						title: '驗證碼錯誤，請確認。',
 						timer: 3000,
 						timerProgressBar: true
@@ -519,6 +546,9 @@ $(document).ready(function () {
 			// 使用 SweetAlert 彈出提示
 			Swal.fire({
 				icon: 'warning',
+				iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 				title: '請先輸入Email'
 			});
 		}
@@ -552,6 +582,9 @@ $(document).ready(function () {
 					// 驗證碼錯誤，彈出 SweetAlert 提示訊息
 					Swal.fire({
 						icon: 'error',
+						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						title: '驗證碼錯誤，請確認。',
 						timer: 2000,
 						timerProgressBar: true
@@ -582,6 +615,9 @@ $(document).ready(function () {
 		if (newPassword !== newPassword2) {
 			Swal.fire({
 				icon: 'error',
+				iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 				title: '新密碼與確認密碼不一致。',
 				showConfirmButton: false,
 				timer: 1500
@@ -589,6 +625,9 @@ $(document).ready(function () {
 		} else if (!validatePattern(newPassword)) { // 新密碼格式驗證
 			Swal.fire({
 				icon: 'error',
+				iconColor: '#4CAF50',
+						background: 'rgb(0,0,0)', // 背景顏色
+						color: '#4CAF50', // 文字顏色
 				title: '密碼必須至少包含一個字母、一個數字，且至少6個字符。'
 			});
 		} else {
@@ -602,6 +641,8 @@ $(document).ready(function () {
 					Swal.fire({
 						icon: 'success',
 						iconColor: '#4CAF50',
+								background: 'rgb(0,0,0)', // 背景顏色
+								color: '#4CAF50', // 文字顏色
 						title: '密碼修改成功！',
 						showConfirmButton: false,
 						timer: 1300

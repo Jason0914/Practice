@@ -38,14 +38,25 @@ public class OrderDaoImpl implements OrderDao {
 	// 根據 ID 單筆查詢，查不到會有 DataAccess 例外
 	@Override
 	public Order findOrderById(Integer orderId) {
-		String sql = "SELECT order_id, order_name, quantity, price FROM order_items WHERE order_id = ?";
-		try {
-			return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class), orderId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	    String sql = "SELECT order_id, table_number, order_time, total_price FROM orders WHERE order_id = ?";
+	    try {
+	        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class), orderId);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
+
+//	@Override
+//	public Order findOrderById(Integer orderId) {
+//		String sql = "SELECT order_id, order_name, quantity, price FROM order_items WHERE order_id = ?";
+//		try {
+//			return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class), orderId);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//	}
 
 
 	// 新增 Order
@@ -86,6 +97,14 @@ public class OrderDaoImpl implements OrderDao {
         String deleteOrderSql = "DELETE FROM orders WHERE order_id = ?";
         return jdbcTemplate.update(deleteOrderSql, orderId);
     }
+    
+ // OrderDaoImpl.java
+    @Override
+    public List<Order> findOrdersByTableNumber(Integer tableNumber) {
+        String sql = "SELECT order_id, table_number, order_time, total_price FROM orders WHERE table_number = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Order.class), tableNumber);
+    }
+
 
 
 }

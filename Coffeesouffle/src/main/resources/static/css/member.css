@@ -1,3 +1,174 @@
+/* 引入字體 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
+
+/* 設置全局字體 */
+:root {
+    --primary-font: 'Noto Sans TC', sans-serif; /* 主要字體 */
+    --handwriting-font: 'Zhi Mang Xing', cursive; /* 手寫風字體 */
+    --elegant-font: 'Dancing Script', cursive; /* 優雅字體 */
+}
+
+/* 桌面版樣式 */
+body {
+    display: flex;
+    flex-direction: row; /* 預設左右佈局 */
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--primary-font); /* 設置全局主要字體 */
+}
+
+.left-section {
+    flex: 1;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--handwriting-font); /* 手寫風字體 */
+}
+
+.left-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.left-section h3 {
+    font-family: var(--elegant-font); /* 優雅字體 */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.left-section p {
+    font-family: var(--primary-font); /* 無襯線字體 */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+}
+
+#sec2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 手機版樣式 */
+@media (max-width: 768px) {
+    .left-section {
+        display: none; /* 隱藏左側區域 */
+    }
+
+    #sec2 {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+
+
+#sec2 {
+    flex: 1;
+    background-color: rgb(255,255,255); /* 可更改右側背景顏色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+}
+
+.login {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.login p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.login label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login .input-group {
+    margin-bottom: 1rem;
+}
+
+.login .form-group {
+    margin-bottom: 1rem;
+}
+
+.login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.login button:hover {
+    background-color: #0056b3;
+}
+
+#linkbt {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#linkbt:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .left-section, #sec2 {
+        flex: none;
+        height: 50%;
+        width: 100%;
+    }
+    .login {
+        max-width: 90%;
+    }
+}
+
+
+
+
 /* section1 區域 大圖片影片 */
 
 #sec1 video {

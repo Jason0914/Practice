@@ -19,15 +19,23 @@ public class OrderItemDaoImpl implements OrderItemDao{
 	// 根據 OrderID 單筆查詢，查不到會有 DataAccess 例外
 	@Override
 	public List<OrderItem> findOrderItemById(Integer orderId) {
-		String sql = "SELECT order_id, order_name, quantity, price FROM order_items WHERE order_id = ?";
-		
-		try {
-			return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OrderItem.class), orderId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	    String sql = "SELECT order_item_id, order_id, order_name, quantity, price FROM order_items WHERE order_id = ?";
+	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OrderItem.class), orderId);
 	}
+
+	
+	
+//	@Override
+//	public List<OrderItem> findOrderItemById(Integer orderId) {
+//		String sql = "SELECT order_id, order_name, quantity, price FROM order_items WHERE order_id = ?";
+//		
+//		try {
+//			return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OrderItem.class), orderId);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//	}
 
 	// 取得所有 OrderItem
 	@Override

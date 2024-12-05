@@ -64,6 +64,12 @@ $(document).ready(function () {
 	
 	
 	
+
+	
+	
+	
+	
+	
 	
 
     // 根據視窗寬度設置每頁顯示的項目數量
@@ -107,11 +113,13 @@ $(document).ready(function () {
         var orderId = form.find('input[name="orderId"]').val(); // 獲取orderId
 
         // 顯示確認對話框
-        Swal.fire({
+		Swal.fire({
             title: '確定要刪除嗎？',
             text: "此操作無法恢復！",
             icon: 'warning',
             showCancelButton: true,
+			background: 'rgb(0,0,0)', // 背景顏色
+			color: '#4CAF50', // 文字顏色
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: '確定',
@@ -122,7 +130,9 @@ $(document).ready(function () {
                 Swal.fire({
                     title: `${orderId}號餐點刪除成功!`,
                     icon: "success",
-                    iconColor: '#4CAF50',
+					iconColor: '#4CAF50',
+					background: 'rgb(0,0,0)', // 背景顏色
+					color: '#4CAF50', // 文字顏色
                     showConfirmButton: false
                 });
                 form.submit();
@@ -143,7 +153,7 @@ $(document).ready(function () {
 
     function getOrderItems(id, tableNumber, totalPrice) {
         $.ajax({
-            url: "http://localhost:8080/order_backend/" + id,
+            url: "http://localhost:8082/order_backend/" + id,
             type: "GET",
             dataType: "json",
             success: function (data) {
