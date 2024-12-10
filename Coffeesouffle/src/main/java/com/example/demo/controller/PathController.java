@@ -54,7 +54,15 @@ public class PathController {
 			
 			return "cart";
 		}
-		
+		@GetMapping("/Charts") // 訪問的 URL 路徑
+		public String ChartsPage() {
+			return "Charts"; // 對應的 JSP 文件名稱（無需包含 .jsp）
+		}
+		@GetMapping("/AIReport")
+		public String AIReportPage() {
+			
+			return "AIReport";
+		}
 
 	
 	

@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.dto.OrderDto;
 import com.example.demo.model.po.Order;
 import com.example.demo.model.po.OrderItem;
+
 import com.example.demo.service.OrderService;
 
 @Controller
@@ -71,7 +72,22 @@ public class OrderController {
         return orderService.getOrdersByTableNumber(tableNumber);
     }
     
- // 2. 為 table.jsp 新增接口
+    // 查詢特定 session_id 的所有訂單
+    @GetMapping("/orders/session/{sessionId}")
+    @ResponseBody
+    public List<Order> getOrdersBySession(@PathVariable("sessionId") String sessionId) {
+        // 調用服務層方法
+        return orderService.getOrdersBySession(sessionId);
+    }
+
+    // 基於 session_id 新增訂單
+    @PostMapping("/orders/session/{sessionId}")
+    @ResponseBody
+    public void createOrderWithSession(@PathVariable("sessionId") String sessionId, @RequestBody OrderDto orderDto) {
+        // 調用服務層方法
+        orderService.createOrderWithSession(sessionId, orderDto);
+    }
+    
     
 
 
@@ -118,6 +134,8 @@ public class OrderController {
         orderService.deleteOrder(orderId);
         return ResponseEntity.noContent().build(); // 返回 HTTP 204 No Content
     }
+
+
 }
 
 

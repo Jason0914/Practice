@@ -56,6 +56,7 @@
         <nav class="collapse navbar-collapse" id="navbarMenu">
             <div class="header-buttons">
                	<a class="header-btn" href="/index">首頁</a>
+                   <a href="/Charts" class="header-btn">財務狀況統整</a>
                 <a class="header-btn" href="/order_backend">訂餐</a>
                 <a class="header-btn" href="/member_backend">成員</a>
                 <a class="header-btn" href="/logout">登出</a>

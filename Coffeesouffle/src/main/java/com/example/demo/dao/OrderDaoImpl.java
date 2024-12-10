@@ -105,6 +105,36 @@ public class OrderDaoImpl implements OrderDao {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Order.class), tableNumber);
     }
 
+    // ===================
+    // 新增的 session_id 功能
+    // ===================
 
+    /**
+     * 根據 session_id 查詢訂單
+     */
+    @Override
+    public List<Order> findOrdersBySessionId(String sessionId) {
+        String sql = "SELECT o.* FROM orders o " +
+                     "JOIN customers c ON o.customer_id = c.id " +
+                     "WHERE c.session_id = ?";
+        try {
+            return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Order.class), sessionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of(); // 返回空列表以防止系統崩潰
+        }
+    }
 
+    /**
+     * 更新訂單的 customer_id
+     */
+    @Override
+    public void updateOrderCustomer(Integer orderId, Integer customerId) {
+        String sql = "UPDATE orders SET customer_id = ? WHERE order_id = ?";
+        int rowsUpdated = jdbcTemplate.update(sql, customerId, orderId);
+
+        if (rowsUpdated == 0) {
+            System.err.println("更新訂單的 customer_id 失敗，orderId: " + orderId);
+        }
+    }
 }
